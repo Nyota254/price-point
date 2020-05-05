@@ -32,7 +32,7 @@ class Sub_SubCategory(models.Model):
         return f'{self.sub_subcategory} of {self.subcategory.subcategory} of {self.subcategory.category.category}'
     
 
-class OnlineSites(models.Model):
+class OnlineSite(models.Model):
     '''
     Online sites
     '''
@@ -43,7 +43,7 @@ class OnlineSites(models.Model):
     def __str__(self):
         return f'{self.online_site } site info'
     
-class Brands(models.Model):
+class Brand(models.Model):
     '''
     Brands
     '''
@@ -59,7 +59,7 @@ class Product(models.Model):
     '''
     product_pic = models.ImageField(upload_to='product_picture/')
     product = models.CharField(max_length=60)
-    product_brand = models.ForeignKey(Brands,on_delete=models.CASCADE)
+    product_brand = models.ForeignKey(Brand,on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.product} info'
@@ -70,7 +70,7 @@ class ProductWithPrice(models.Model):
     '''
     sub_subcategory = models.ForeignKey(Sub_SubCategory,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
-    online_site = models.ForeignKey(OnlineSites,on_delete=models.CASCADE)
+    online_site = models.ForeignKey(OnlineSite,on_delete=models.CASCADE)
     price = models.IntegerField()
     
     def __str__(self):
