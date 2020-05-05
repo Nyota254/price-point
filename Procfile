@@ -1,0 +1,1 @@
+web: gunicorn pricepoint.wsgi --log-file -
