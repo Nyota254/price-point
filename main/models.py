@@ -7,7 +7,7 @@ class Category(models.Model):
     category = models.CharField(max_length=60)
     
     def __str__(self):
-        return f'{self.category} Main'
+        return f'{self.category}'
     
     
 class SubCategory(models.Model):
@@ -57,8 +57,13 @@ class Product(models.Model):
     '''
     product
     '''
-    product_pic = models.ImageField(upload_to='product_picture/')
+    product_pic = models.ImageField(upload_to='product_picture/',null=True,blank=True)
+    product_pic_2 = models.ImageField(upload_to='product_picture/',null=True,blank=True)
+    product_pic_3 = models.ImageField(upload_to='product_picture/',null=True,blank=True)
+    product_pic_4 = models.ImageField(upload_to='product_picture/',null=True,blank=True)
+    sub_subcategory = models.ForeignKey(Sub_SubCategory,on_delete=models.CASCADE,null=True)
     product = models.CharField(max_length=60)
+    product_description = models.TextField(null=True)
     product_brand = models.ForeignKey(Brand,on_delete=models.CASCADE)
     
     def __str__(self):
@@ -68,10 +73,10 @@ class ProductWithPrice(models.Model):
     '''
     Product itself
     '''
-    sub_subcategory = models.ForeignKey(Sub_SubCategory,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     online_site = models.ForeignKey(OnlineSite,on_delete=models.CASCADE)
     price = models.IntegerField()
+    affiliate_link = models.URLField(max_length=1000,null=True,blank=True)
     
     def __str__(self):
         return f'{self.product.product} Price from {self.online_site.online_site}'
