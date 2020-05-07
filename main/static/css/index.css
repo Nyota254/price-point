@@ -1,7 +1,45 @@
-h1 {
-  color: green;
+body {
+  margin-top: 70px;
+  font-family: 'Spartan', sans-serif;
 }
 
-body {
-  margin-top: 65px;
+.logo-top {
+  padding-top: 65px;
+  font-size: larger;
+  font-weight: bold;
+}
+
+.landing-page-logo {
+  height: 200px;
+  width: 220px;
+}
+
+.masoko-landing-page-logo {
+  height: 150px;
+  width: 150px;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  color: black;
+  background-color: black;
+}
+
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  .landing-page-logo {
+    height: 100px;
+    width: 120px;
+  }
+  
+  .masoko-landing-page-logo {
+    height: 60px;
+    width: 60px;
+  }
 }

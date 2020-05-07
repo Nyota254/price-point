@@ -1,15 +1,40 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
 
 {% block content %}
-    <div class="container-fluid">
-        <h1>Success</h1>
-    {% if images %}
-    {% for image in images %}
-        <p>{{image.brand_name}}</p>
-      <img src="{{image.brand_pic.url}}" alt="">
-    {% endfor %}
-    {% endif %}
-    </div>
+        <div class="container logo-top">
+            <p class="text-center">
+                <img src="{% static 'images/pricepoint.png' %}" alt="logo">
+            </p><hr>
+            <p class="text-center">Save Time and Money : Get the best deal : Legitimate Brands</p>
+        </div>
+        <div class="container">
+            <img src="{% static 'images/masokologo.jpeg' %}" alt="jumia" class="masoko-landing-page-logo">
+            <img src="{% static 'images/jumialogo.png' %}" alt="jumia" class="landing-page-logo">
+            <img src="{% static 'images/killimalllogo.png' %}" alt="jumia" class="landing-page-logo">
+            <img src="{% static 'images/amazonlogo.png' %}" alt="jumia" class="landing-page-logo">
+            <img src="{% static 'images/aliexpresslogo.png' %}" alt="jumia" class="landing-page-logo">
+            <hr>
+        </div>
+        <div class="container">
+            <h1>Categorys</h1>
+            <div class="row">
+
+                {% for category in categorys %}
+                    <div class="col-md-6">
+                        <h2>{{ category.category }}</h2>
+                        {% if category.subcategory_set.all %}
+                            {% for subcategory in category.subcategory_set.all %}
+                                <ul>
+                                    <li>{{ subcategory.subcategory }}</li>
+                                </ul>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        
 
 {% endblock %}
