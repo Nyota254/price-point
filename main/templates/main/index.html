@@ -34,7 +34,13 @@
                                     {% for subcategory in category.subcategory_set.all %}
                                         <tbody>
                                             <tr>
-                                                <td>{{ subcategory.subcategory }}</td>
+                                                <td>
+                                                    <div class="divBox">
+                                                        <a href="{% url 'subcategory' subcategory.id %}">
+                                                            {{ subcategory.subcategory }}
+                                                        </a>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     {% endfor %}

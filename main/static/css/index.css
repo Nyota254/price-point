@@ -27,10 +27,23 @@ hr {
 }
 
 
-/* h1 {
-  font-size: 24px;
+.divBox
+{
+    width: 515px;
+    /* height: 10px; */
+}
+.divBox a
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+h1 {
+  font-size: 25px;
+  text-transform: capitalize;
   font-weight: bold;
-} */
+}
 
 @media only screen and (max-width: 600px) {
   .landing-page-logo {
@@ -42,4 +55,14 @@ hr {
     height: 60px;
     width: 60px;
   }
+
+  .divBox {
+      width: 300px;
+  }
+
+  /* .divBox a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  } */
 }
