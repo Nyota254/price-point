@@ -18,19 +18,35 @@
             <hr>
         </div>
         <div class="container">
-            <h1>Categorys</h1>
+            <h1 class="text-center">Categorys</h1>
             <div class="row">
 
                 {% for category in categorys %}
                     <div class="col-md-6">
-                        <h2>{{ category.category }}</h2>
-                        {% if category.subcategory_set.all %}
-                            {% for subcategory in category.subcategory_set.all %}
-                                <ul>
-                                    <li>{{ subcategory.subcategory }}</li>
-                                </ul>
-                            {% endfor %}
-                        {% endif %}
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead class="black white-text">
+                                    <tr>
+                                        <th scope="col">{{ category.category }}</th>
+                                    </tr>
+                                </thead>
+                                {% if category.subcategory_set.all %}
+                                    {% for subcategory in category.subcategory_set.all %}
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ subcategory.subcategory }}</td>
+                                            </tr>
+                                        </tbody>
+                                    {% endfor %}
+                                {% else %}
+                                    <tbody>
+                                        <tr>
+                                            <td>Data to be populated soon ...</td>
+                                        </tr>
+                                    </tbody> 
+                                {% endif %}
+                            </table>
+                        </div>
                     </div>
                 {% endfor %}
             </div>
