@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
 
 {% block content %}
+<div class="wrap">
     <div class="container">
         <h1 class="text-center">{{ subcategory.subcategory }}</h1><br>
         <p class="text-center">*** Please check to see whether what you are looking for is available for comparison ***</p><hr>
@@ -8,10 +9,20 @@
     <div class="container">
         {% if subcategory.sub_subcategory_set.all %}
             {% for sub_subcategory in subcategory.sub_subcategory_set.all %}
-                <p>{{ sub_subcategory.sub_subcategory }}</p>
+                <button class="collapsible">{{ sub_subcategory.sub_subcategory }}</button>
+                <div class="content">
+                    {% if sub_subcategory.brand_set.all %}
+                        {% for brand in sub_subcategory.brand_set.all %}
+                        <p>{{ brand.brand_name }}</p>
+                        {% endfor %}
+                    {% else %}
+                        <p>Sorry this sub category does not have brands yet ...</p>
+                    {% endif %}
+                </div>
             {% endfor %}
         {% else %}
             <p>Populating Soon ...</p>
         {% endif %}
     </div>
+</div>
 {% endblock %}
