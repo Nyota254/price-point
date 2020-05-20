@@ -85,6 +85,13 @@ h1 {
 
   /* ...Sub category colapsible end... */
 
+  .product-images {
+    height: 200px;
+    width: 200px;
+  }
+
+
+
 @media only screen and (max-width: 600px) {
   .landing-page-logo {
     height: 100px;

@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{ products.product_pic.url }}" alt="" class="product-images">
+    </div>
+    <div class="col-md-4">
+        <img src="{{ products.product_pic_2.url }}" alt="" class="product-images">
+    </div>
+    <div class="col-md-4">
+        <img src="{{ products.product_pic_3.url }}" alt="" class="product-images">
+    </div>
+</div>
+
+<br><br>
+
+
+    <p>Product Description.</p>
+    <small>{{ products.product_description }}</small>
+    <hr>
+    <p>Best Prices from Stores</p>
+<div class="row">
+    {% for comparisonPrice in comparisonPrices %}
+            <div class = "col-md-4">
+            <!-- Card -->
+            <div class="card">
+    
+                <!-- Card image -->
+                <div class="view overlay">
+                    <img class="card-img-top product-images" src="{{ comparisonPrice.online_site.logo.url }}" alt="Card image cap">
+                    <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+    
+                <!-- Card content -->
+                <div class="card-body">
+    
+                    <!-- Title -->
+                    <h4 class="card-title">{{ comparisonPrice.price }}/= Ksh</h4>
+    
+                    <a href="{{ comparisonPrice.affiliate_link }}" class="btn btn-primary" target="_blank">Shop Here</a>
+    
+                </div>
+    
+            </div>
+            <!-- Card -->
+        </div>
+   
+
+
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}

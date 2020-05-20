@@ -52,7 +52,7 @@ class Brand(models.Model):
     sub_subcategory = models.ManyToManyField(Sub_SubCategory)
     
     def __str__(self):
-        return f'{self.brand_name} info'
+        return f'{self.brand_name}'
     
 class Product(models.Model):
     '''
